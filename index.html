@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asjadh Aswer | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f6fc;
+    color: #222;
+    scroll-behavior: smooth;
+  }
+
+  /* ---------- Navigation ---------- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+
+  nav img {
+    height: 50px;
+    border-radius: 10px;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  nav a:hover {
+    color: #5a67d8;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    text-align: center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    padding: 25px 10px;
+    border-radius: 0 0 80px 80px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+
+  header h1 {
+    font-size: 3.2rem;
+    margin-bottom: 10px;
+  }
+
+  header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+
+  /* ---------- Floating CV Button ---------- */
+  .cv-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    padding: 12px 25px;
+    background-color: #5a67d8;
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+  }
+
+  .cv-button:hover {
+    background-color: #434190;
+    transform: translateY(-3px);
+  }
+
+  /* ---------- Section Wrapper ---------- */
+  section {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  h2 {
+    text-align: center;
+    color: #5a67d8;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+  }
+
+  /* ---------- About Section ---------- */
+  .about {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    justify-content: center;
+  }
+
+  .about img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 6px solid #667eea;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  }
+
+  .about .text {
+    flex: 1;
+    min-width: 280px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    line-height: 1.6;
+  }
+
+  /* ---------- Background Section ---------- */
+  .background {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    line-height: 1.6;
+  }
+
+  .background h3 {
+    color: #764ba2;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  /* ---------- Skills ---------- */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 25px;
+    justify-items: center;
+  }
+
+  .skill {
+    text-align: center;
+    background: #fff;
+    height: 150px;
+    width: 130px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+  }
+
+  .skill:hover {
+    transform: scale(1.05);
+  }
+
+  .skill i {
+    font-size: 40px;
+    color: #667eea;
+    margin-bottom: 10px;
+  }
+
+  /* ---------- Projects ---------- */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .project {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .project:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+
+  .project img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .project .info {
+    padding: 20px;
+  }
+
+  .project h3 {
+    color: #764ba2;
+    margin-bottom: 10px;
+  }
+
+  .project p {
+    font-size: 0.9rem;
+    color: #444;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-links {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .contact-links a {
+    background: #667eea;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .contact-links a:hover {
+    background: #5a67d8;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  /* ---------- Responsive Design ---------- */
+  @media (max-width: 1024px) {
+    nav {
+      padding: 15px 40px;
+    }
+    header h1 {
+      font-size: 2.8rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 15px 25px;
+    }
+
+    nav ul {
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      padding-top: 10px;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+    }
+
+    section {
+      padding: 60px 15px;
+    }
+
+    .about img {
+      width: 200px;
+      height: 200px;
+    }
+
+    .skills-grid {
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    header h1 {
+      font-size: 1.8rem;
+    }
+    header p {
+      font-size: 1rem;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+    .cv-button {
+      padding: 10px 18px;
+      font-size: 0.9rem;
+    }
+    .skill {
+      width: 100px;
+      height: 130px;
+      padding: 15px;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <img src="image/logo1.png" alt="Logo">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#background">Background</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="MY CV.pdf" download>Resume</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h1>ASJADH ASWER</h1>
+    <p>Software Engineering Undergraduate | Graphic Designer </p>
+  </header>
+
+  <a href="image/MY CV.pdf" download class="cv-button">Download CV</a>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about">
+      <img src="image/asjadh.jpg" alt="Profile Photo">
+      <div class="text">
+        <p>
+          I am an IT undergraduate specializing in Software Engineering, with a strong passion for digital marketing and a solid foundation in graphic design. With over a year of basic experience in Graphic design, I aim to integrate technical expertise and creative strategy to develop innovative digital solutions. I am seeking opportunities to apply my skills, enhance my professional growth, and contribute to impactful projects within the tech and digital industries.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Background -->
+  <section id="background">
+    <h2>Background</h2>
+    <div class="background">
+      <h3>Education</h3>
+      <p>🎓 Foundation in Business and IT – BCAS College (2023)</p>
+      <p>🎓 Higher National Diploma in Computing – BCAS College (2023–2025)</p>
+      <p>🎓 Diploma in Digital Marketing – Digital Studyz (2025)</p>
+      <p>🎓 Photoshop Course – Digital Studyz (2025)</p>
+      <p>🎓 Certificate in Computer System and Hardware – Orion International Campus (2025)</p>
+
+      <h3>Experience</h3>
+      <p>⚫ Printing & Designing at Afix: worked with clients, managed timelines, and ensured quality — gaining key design and client-handling skills.</p>
+      <p>⚫ Cashier at Smart Mart Food City: handled transactions and provided excellent customer service.</p>
+      <p>⚫ Designing & Marketing at TPV – The Perfume Vault SL: created product posters and marketing content to enhance brand visibility and engagement.</p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <div class="skill"><i class="fab fa-html5"></i><p>HTML</p></div>
+    <div class="skill"><i class="fab fa-css3-alt"></i><p>CSS</p></div>
+    <div class="skill"><i class="fab fa-java"></i><p>Java</p></div>
+    <div class="skill"><i class="fab fa-php"></i><p>PHP</p></div>
+    <div class="skill"><i class="fas fa-database"></i><p>MySQL</p></div>
+    <div class="skill"><i class="fab fa-github"></i><p>GitHub</p></div>
+    <div class="skill"><i class="fas fa-code"></i><p>Visual Studio Code</p></div>
+    <div class="skill"><i class="fas fa-layer-group"></i><p>UIkit</p></div>
+    <div class="skill"><i class="fas fa-image"></i><p>Adobe Photoshop</p></div>
+    <div class="skill"><i class="fas fa-pen-nib"></i><p>Adobe Illustrator</p></div>
+    <div class="skill"><i class="fab fa-figma"></i><p>Figma</p></div>
+    <div class="skill"><i class="fas fa-palette"></i><p>Canva</p></div>
+    <div class="skill"><i class="fas fa-file-word"></i><p>Microsoft Word</p></div>
+    <div class="skill"><i class="fas fa-file-excel"></i><p>Microsoft Excel</p></div>
+  </div>
+</section>
+
+
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+
+      <div class="project">
+        <a href="Theperfumevaultsl.html"><img src="image/theperfumevaultsl.PNG" alt="Product Posters"></a>
+        <div class="info">
+          <h3>Product Poster Designs</h3><br>
+          <p>Designed creative posters using Canva and Photoshop, and managed social media ad campaigns to boost brand visibility.</p> <br>
+          <p><strong>Tools Used:</strong> Photoshop, Canva</p>
+        </div>
+      </div>
+      <div class="project">
+        <a href="Hospitalwebsite.html"><img src="project/website/Thumbnail.jpeg" alt="Website"></a>
+        <div class="info">
+          <h3>Hospital Website Design & Development</h3>
+          <p>Developed a responsive hospital website for ABC Hospital as part of a semester project, featuring user login, appointment booking, and doctor profiles</p> <br>
+          <p><strong>Tools Used:</strong> HTML, CSS, UIkit, PHP, MySQL & VS Code</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+<section id="contact">
+  <h2>Contact Me</h2>
+  <div class="contact-links">
+    <a href="mailto:asjathasjath111@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+    <a href="https://www.linkedin.com/in/mohammed-asjadh/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <a href="https://github.com/asjathaswer" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+    <a href="https://www.instagram.com/_design_with_me_0" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+    <a href="https://web.facebook.com/profile.php?id=61578267929329" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+    <a href="https://yourwebsite.com" target="_blank"><i class="fas fa-globe"></i> Website</a>
+    <a href="tel:+94 726422450"><i class="fas fa-phone"></i> +94 726422450</a>
+    <a href="https://wa.me/+94766728480" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer>
+    <p>"Create with purpose, code with passion."</p>
+    <p>&copy; 2025 Asjadh Aswer. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Perfume Vault SL - Poster Gallery</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.17.10/dist/css/uikit.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f6f6f6;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header */
+    header {
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header a {
+      font-weight: 500;
+      color: #333;
+      text-decoration: none;
+    }
+
+    header a:hover {
+      color: #007bff;
+    }
+
+    /* Title */
+    h1 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-top: 60px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    h2 {
+      text-align: center;
+      color: #555;
+      font-weight: 400;
+      font-size: 1.1rem;
+      max-width: 850px;
+      margin: 10px auto 50px;
+      line-height: 1.6;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      padding: 0 60px 80px;
+    }
+
+    .poster-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: all 0.35s ease;
+      cursor: pointer;
+    }
+
+    .poster-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .poster-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .poster-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .poster-title {
+      padding: 15px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #444;
+      background-color: #fafafa;
+      border-top: 1px solid #eee;
+    }
+
+    /* Download Section */
+    .container {
+      text-align: center;
+      background: linear-gradient(135deg, #f8f8f8, #fff);
+      padding: 70px 20px;
+      margin: 50px 0;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+
+    .container h3 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #111;
+      margin-bottom: 10px;
+    }
+
+    .container p {
+      color: #666;
+      font-size: 1rem;
+      margin-bottom: 25px;
+    }
+
+    .uk-button {
+      border-radius: 8px;
+      font-weight: 500;
+      padding: 10px 20px;
+      transition: all 0.3s ease;
+    }
+
+    .uk-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+    }
+
+    /* Stickers Section */
+    .sticker-section {
+      max-width: 950px;
+      margin: 60px auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #fff;
+      padding: 25px 30px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .sticker-thumb {
+      width: 80px;
+      height: auto;
+    }
+
+    .sticker-filename {
+      flex-grow: 1;
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .btn {
+      padding: 10px 15px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .download-btn {
+      background-color: #007bff;
+    }
+
+    .download-btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+      padding: 50px 0;
+      background-color: #fff;
+      box-shadow: 0 -1px 10px rgba(0,0,0,0.05);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1rem;
+        padding: 0 20px;
+      }
+
+      .gallery-grid {
+        padding: 0 20px 60px;
+      }
+
+      .sticker-section {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header uk-navbar>
+  <a href="index.html" class="btn download-btn" ><span uk-icon="icon: arrow-left"></span> Back to Portfolio</a>
+</header>
+
+<main>
+  <h1>The Perfume Vault SL – Poster Gallery</h1>
+  <h2>
+    A creative poster series designed for <strong>The Perfume Vault SL</strong>, 
+    blending modern design aesthetics with strong brand storytelling. 
+    These visuals were crafted using Adobe Photoshop and Canva to highlight 
+    luxury and identity through color, typography, and composition.
+  </h2>
+
+  <div class="gallery-grid">
+    <div class="poster-card"><img src="https://i.ibb.co/fYMBGT57/ASAD-BLACK-1.png" alt="ASAD-BLACK-1" alt="ASAD Black"><div class="poster-title">ASAD - BLACK</div></div>
+    <div class="poster-card"><img src="https://i.ibb.co/XfvsNKDD/ASAD-BLACK.png" alt="ASAD-BLACK" alt="ASAD Black"><div class="poster-title">ASAD - BLACK</div></div>
+    <div class="poster-card"><img src="https://i.ibb.co/FLwSMJ5w/9PM.png" alt="9PM"><div class="poster-title">9PM - BLACK</div></div>
+    <div class="poster-card"><img src="https://i.ibb.co/FLBCMTG3/BADEE-AL-OUD-POST.png" alt="BADEE AL OUD"><div class="poster-title">BADEE AL OUD</div></div>
+    <!-- Add remaining posters here -->
+  </div>
+
+    <div class="gallery-grid">
+    <div class="poster-card">
+      <img src="https://i.ibb.co/RGKk6Xz1/afeef.png" alt="Poster 4">
+      <div class="poster-title">AFEEF</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/HLygZ8Kg/9-PM-REBAL.png" alt="Poster 2">
+      <div class="poster-title">9PM REBAL</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/7N6jDdyF/9-PM-REBAL-10-ML.png" alt="Poster 4">
+      <div class="poster-title">9PM REBAL 10ML & 20ML</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/0ppV5YrD/9PM-10ML.png" alt="Poster 4">
+      <div class="poster-title">9PM 10ML & 20ML</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/sv4mnm23/SAUVAGE-LA-DIOR.png" alt="Poster 3">
+      <div class="poster-title">SAUVAGE – LA’ DIOR</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/fYfQyWKh/DUBAI-NIGHTS.png" alt="Poster 4">
+      <div class="poster-title">DUBAI NIGHTS</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/vvV6Nf7Y/HAYAATI-BLACK.png" alt="Poster 4">
+      <div class="poster-title">HAYAATI - BLACK</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/gb79rwnB/MAUSAM.png" alt="Poster 4">
+      <div class="poster-title">MAUSAM</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/9CcH3gd/ODYSSEY-LIMONI.png" alt="Poster 4">
+      <div class="poster-title">ODYSSEY LIMONI</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/TD6cYnpZ/SUPREMACY-SILVER.png" alt="Poster 4">
+      <div class="poster-title">SUPREMACY SILVER</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/xtq1yY4K/SUPREMACY-NOT-ONLY.png" alt="Poster 4">
+      <div class="poster-title">SUPREMACY NOT ONLY</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/s9d6JZYY/AL-HARAMAIN.png" alt="Poster 4">
+      <div class="poster-title">AL-HARAMAIN</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/CKbsskHN/HAWAS-ICE.png" alt="Poster 4">
+      <div class="poster-title">HAWAS ICE</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/SDm8ZvPc/HAWAS-ICE-10-ML.png" alt="Poster 4">
+      <div class="poster-title">HAWAS ICE 10ML & 20ML</div>
+    </div>     
+    <div class="poster-card">
+      <img src="https://i.ibb.co/v241z5r/ECLAIR.png" alt="Poster 4">
+      <div class="poster-title">ECLAIR</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/65vWFCz/ECLAIRE-10-ML.png" alt="Poster 4">
+      <div class="poster-title">ECLAIRE 10ML & 20ML</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/SwscsJ3g/HAWAS.png" alt="Poster 1">
+      <div class="poster-title">HAWAS</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/Kxrb4Jmk/HAWAS-10-ML.png" alt="Poster 1">
+      <div class="poster-title">HAWAS 10ML & 20ML</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/WvHxBJwf/HOOKED-POUR-FEMME.png" alt="Poster 4">
+      <div class="poster-title">HOOKED POUR FEMME</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/3y4bVVps/HOOKED-POUR-FEMME-10-ML.png" alt="Poster 4">
+      <div class="poster-title">10ML & 20ML</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/zWVgN0VZ/MAAHIR-LEGACY.png" alt="Poster 4">
+      <div class="poster-title">MAAHIR - LEGACY</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/DHBcgWdJ/MAAHIR-10-ML.png" alt="Poster 4">
+      <div class="poster-title">MAAHIR 10ML & 20ML</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/7drQb71v/YARA-TOUS.png" alt="Poster 4">
+      <div class="poster-title">YARA TOUS</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/4ZR3W4C8/YARA-TOUS-10-ML.png" alt="Poster 1">
+      <div class="poster-title">YARA TOUS 10ML & 20ML</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/9mk8Jt2s/Asad-Bourbon.png" alt="Poster 4">
+      <div class="poster-title">ASAD BOURBON</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/MyBBSW96/ASAD-BOURBON-10-ML.png" alt="Poster 4">
+      <div class="poster-title">ASAD BOURBON 10ML & 20ML</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/992B700c/LIQUID-BURN.png" alt="Poster 4">
+      <div class="poster-title">LIQUID BURN</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/Psh4Wy3F/LIQUID-BURN-10-ML.png" alt="Poster 4">
+      <div class="poster-title">LIQUID BURN 10ML & 20ML</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/FLD8M11c/KHAMRAH.png" alt="Poster 4">
+      <div class="poster-title">KHAMRAH</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/YBT2KXRx/KHAMRAH-10-ML.png" alt="Poster 4">
+      <div class="poster-title">KHAMRAH 10ML & 20ML</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/Ngc0cHgB/ASAD-ZANZIBAR.png" alt="Poster 4">
+      <div class="poster-title">ASAD - ZANZIBAR</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/4gSGtnNH/ASAD-ZANZIBAR-10-ML.png" alt="Poster 4">
+      <div class="poster-title">ASAD - ZANZIBAR 10ML & 20ML</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/VYbRK2Dg/KHAMRAH-QAHWA.png" alt="Poster 4">
+      <div class="poster-title">KHAMRAH QAHWA</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/xSjm9TqT/KHAMRAH-QAHWA-10-ML.png" alt="Poster 4">
+      <div class="poster-title">KHAMRAH QAHWA 10ML & 20ML</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/CgwKk0R/9AM-DIVE.png" alt="Poster 4">
+      <div class="poster-title">9AM - DIVE</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/5W6gkr3M/9-AM-DIVE-10-ML.png" alt="Poster 4">
+      <div class="poster-title">9AM - DIVE 10ML & 20ML</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/W4JSy0G6/MAAHIR-BLACK.png" alt="Poster 4">
+      <div class="poster-title">MAAHIR BLACK </div>
+    </div> 
+    <div class="poster-card">
+      <img src="https://i.ibb.co/Y4hpBCtc/MAAHIR-BLACK-10-ML.png" alt="Poster 4">
+      <div class="poster-title">MAAHIR BLACK 10ML & 20ML</div>
+    </div> 
+    <div class="poster-card">
+      <img src="https://i.ibb.co/dw3qHPTY/HAWAS-ELIXIR.png" alt="Poster 4">
+      <div class="poster-title">HAWAS – ELIXIR</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/1tmRDn6F/HAWAS-ELIXIR-10-ML.png" alt="Poster 4">
+      <div class="poster-title">HAWAS – ELIXIR 10ML & 20ML</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/kVM5Z3WZ/COCOA-MORADO.png" alt="Poster 4">
+      <div class="poster-title">COCOA MORADO</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/Cpsjbcc3/COCOA-MORADO-10-ML.png" alt="Poster 4">
+      <div class="poster-title">COCOA MORADO 10ML & 20ML</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/k2p0BsN9/BADEE-AL-OUD-10-ML.png" alt="Poster 4">
+      <div class="poster-title">BADEE AL OUD</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/20TpHD06/ASAD-BLACK-10-ML.png" alt="Poster 4">
+      <div class="poster-title">ASAD BLACK 10ML & 20ML</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/q3G278hh/YARA-MOLI.png" alt="Poster 4">
+      <div class="poster-title">YARA MOLI</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/HDXFmGxb/NOW-RAVE.png" alt="Poster 4">
+      <div class="poster-title">NOW - RAVE</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/r2pPwdcD/NOW.png" alt="Poster 4">
+      <div class="poster-title">NOW</div>
+    </div>
+    <div class="poster-card">
+      <img src="https://i.ibb.co/H1nCQ8V/HER.png" alt="Poster 4">
+      <div class="poster-title">HER</div>
+    </div>
+
+  </div>
+
+  <div class="container">
+    <h3>Download the Complete Poster Collection</h3>
+    <p>Click below to download all Perfume Vault posters as a single ZIP file.</p>
+    <a href="https://drive.google.com/drive/folders/1x_0IK99MSmnVeCCb4UEPv8LcpXDMITZa?usp=drive_link" class="uk-button uk-button-primary" download>Download ZIP</a>
+  </div>
+
+  <div class="sticker-section">
+    <img src="image/theperfumevaultsl - logo.png" alt="Perfume Vault Logo" class="sticker-thumb">
+    <span class="sticker-filename">Mockups Collection</span>
+    <a href="Mockup&stickers.html" class="btn download-btn">View Collection</a>
+  </div>
+</main>
+
+<footer>
+  © 2025 The Perfume Vault Project — Designed & Developed by Asjadh Aswer
+</footer>
+
+</body>
+</html>
